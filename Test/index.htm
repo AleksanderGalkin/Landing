@@ -1,0 +1,78 @@
+﻿<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+	<TITLE>Slideshow</TITLE>
+
+	<script type = 'text/javascript' src = 'file://///ogk-s-appmine01/mdb/tcss/jq-1.9.1/jquery-1.9.1.js'> </script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+	<div class="slider" id="main-slider"><!-- самый внешний контейнер -->
+			<!-- slides -->
+			<div class="slide" id="slide-1" data-image="images/image1.jpg"></div>
+			<div class="slide" id="slide-2" data-image="images/image2.jpg"></div>
+			<div class="slide" id="slide-3" data-image="images/image3.jpg"></div>
+	</div>	
+</body>
+
+<script type="text/javascript" >
+
+    (function ($) {
+        $.fn.slideshow = function (options) {
+            options = $.extend({
+                slides: ".slide",
+                speed: 3000,
+                easing: "swing"
+
+            }, options);
+
+            var timer = null; // Таймер
+            var index = 0;    // Курсор
+
+            var slideTo = function (slide, element) {
+                var $currentSlide = $(options.slides, element).eq(slide);
+                var imageUrl = "url(" + $currentSlide.data('image') + ")";
+                element.stop(true, true)
+                    .css("opacity", 0.1)
+                    .css('background-image', imageUrl)
+                    .css('background-size', 'cover')
+                    .animate({
+                        opacity: 1
+                    }, options.speed, options.easing) ;
+            };
+
+            var autoSlide = function (element) {
+                // Инициализируем последовательность
+                timer = setInterval(function () {
+                        index++; // Увеличим курсор на 1
+                        if (index == $(options.slides, element).length) {
+                            index = 0; // Обнулим курсор
+                        }
+                        slideTo(index, element);
+                    }, options.speed); // Тот же интервал, что и в методе .animate() 
+            };
+
+            var startStop = function (element) {
+                    element.hover(function () { // Останавливаем анимацию
+                        clearInterval(timer);
+                        timer = null;
+                    }, function () {
+                        autoSlide(element); // Возобновляем анимацию	
+                    });
+            };
+
+            return this.each(function () {
+                var $element = $(this);
+                autoSlide( $element );
+                startStop( $element );  
+            });
+
+        }
+        $('#main-slider').slideshow();
+    })(jQuery);
+
+</script>

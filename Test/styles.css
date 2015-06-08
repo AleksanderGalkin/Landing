@@ -1,0 +1,11 @@
+.slider {
+    width: 1024px;
+	height: 683px;
+    overflow: hidden;
+}
+.slide {
+    float: left;
+    position: relative;
+    width: 1024px;
+    height: 683px;
+}
