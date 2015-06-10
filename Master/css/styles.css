@@ -42,19 +42,23 @@ a img{
 	padding: 0 0;
 	margin: 0 0;
 	text-align: center;
-	width: 960px;
+	max-width: 960px;
 	height: 330px;
 	background-image: url(../images/content.png);
 	background-size: cover;
 	background-position: center 40%;
 }
 #contentShadow{
+	width: 100%;
 	padding: 0 0;
 	margin: 0 0;
 	position: relative;
 	top: -3px;
+	
 }
-
+	#contentShadow img {
+		width: 100%;
+	}
 #account{
 	display: inline-block;
 	min-width: 100%;
@@ -63,45 +67,91 @@ a img{
 	margin: 10px 0;
 	text-align: center;
 	/* background-color: #f3f3a3; */
-	line-height: 0.5;
+	line-height: 0.9;
 }
 
 
 #account_registration{
-	display: inline-block;
-	min-width: 42%;
-	height: 100%;
-	padding: 0 0 0 3%;
-	margin: 0 0;
-	vertical-align: top;
-    text-align: left;
-	
-	float: left;
-}
-
-#vertical_line{
-		display: inline-block;
-		
+		min-width: 42%;
 		height: 100%;
+		padding: 0 0 0 3%;
+		margin: 0 0;
+		vertical-align: top;
+		text-align: left;
+	}
+
+								@media (min-width: 600px) {
+										#account_registration{
+											display: inline-block;
+											float: left;
+										}
+								}
+								@media (max-width: 600px) {
+										#account_registration{
+											display: block;
+										}
+								}
+#vertical_line{
 		padding: 0 0;
 		margin: 0 0;
-		
 		vertical-align: top;
-        text-align: center;
-		
-		/* background-color: #f3f3f3; */
+		text-align: center;
 }
+				@media (min-width: 600px) {
+						#vertical_line{
+								max-height: 100%;
+								display: inline-block;
+						}
+							#vertical_line img {
+								-moz-transform: rotate(0deg); /* Äëÿ Firefox */
+								-ms-transform: rotate(0deg); /* Äëÿ IE */
+								-webkit-transform: rotate(0deg); /* Äëÿ Safari, Chrome, iOS */
+								-o-transform: rotate(0deg); /* Äëÿ Opera */
+								transform: rotate(0);
+							}
+				}
+
+				@media (max-width: 600px) {
+
+						#vertical_line{
+
+								display: inline-block;
+						}
+							#vertical_line img {
+								-moz-transform: rotate(90deg); /* Äëÿ Firefox */
+								-ms-transform: rotate(90deg); /* Äëÿ IE */
+								-webkit-transform: rotate(90deg); /* Äëÿ Safari, Chrome, iOS */
+								-o-transform: rotate(90deg); /* Äëÿ Opera */
+								transform: rotate(90);
+								
+
+								max-width: 50%;
+								
+							}
+				}
 
 #account_login{
-	display: inline-block;
 	min-width: 42%;
 	height: 100%;
 	padding: 0 0 0 3%;
 	margin: 0 0;
 	vertical-align: top;
     text-align: left;
-	float:right;
+
 }
+				@media (min-width: 600px) {
+					#account_login{
+						display: inline-block;
+							float:right;
+					}
+				}
+				@media (max-width: 600px) {
+					#account_login{
+						display: block;
+					}
+				}
+
+
 #account  .tittle  {
 	font-family:  'Century Gothic', 'Tahoma',Times;
 	font-size: 2em;
@@ -215,5 +265,5 @@ a img{
 		.smallText{
 			font-family:  'Century Gothic', 'Tahoma',Times;
 			font-size: 0.8em;
-			line-height:0.5;
+			line-height:0.9;
 		}
