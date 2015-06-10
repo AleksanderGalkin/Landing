@@ -199,10 +199,19 @@ a img{
 			}
 
 			.button:hover {
-				background: linear-gradient(to top,#2D333C, #454B56);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#454B5D', endColorstr='#2D3343',GradientType=0 );
+				background: linear-gradient(to top,#2D333C, #3C4149);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3C4149', endColorstr='#2D333C',GradientType=0 );
 			}
 
+			.button:active {
+				background: linear-gradient(to top,#3C4149, #3C4149);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3C4149', endColorstr='#3C4149',GradientType=0 );
+			}
+			.button:sekected {
+				background: linear-gradient(to top,#000000, #3C4149);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3C4149', endColorstr='#000000',GradientType=0 );
+			}
+			
 		.smallText{
 			font-family:  'Century Gothic', 'Tahoma',Times;
 			font-size: 0.8em;
