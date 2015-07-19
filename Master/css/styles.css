@@ -257,7 +257,7 @@ a img{
 				background: linear-gradient(to top,#3C4149, #3C4149);
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3C4149', endColorstr='#3C4149',GradientType=0 );
 			}
-			.button:sekected {
+			.button:selected {
 				background: linear-gradient(to top,#000000, #3C4149);
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3C4149', endColorstr='#000000',GradientType=0 );
 			}
